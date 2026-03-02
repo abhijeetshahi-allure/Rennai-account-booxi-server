@@ -1,0 +1,5 @@
+[commands]
+dev = "npm run start"
+
+[process]
+roles = ["frontend", "backend"]
