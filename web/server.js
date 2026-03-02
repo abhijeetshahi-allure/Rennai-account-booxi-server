@@ -25,8 +25,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Root - for Vercel deployment check
-app.get('/', (req, res) => res.json({ ok: true, message: 'Booxi proxy server' }));
 // Health check - hit /health or /apps/booxi/health to verify backend is reachable
 app.get('/health', (req, res) => res.json({ ok: true }));
 app.get('/apps/booxi/health', (req, res) => res.json({ ok: true, message: 'Booxi proxy is running' }));
@@ -80,10 +78,6 @@ app.get('/apps/booxi/bookings', async (req, res) => {
   }
 });
 
-// Export for Vercel serverless; only listen when running locally
-export default app;
-if (process.env.VERCEL !== '1') {
-  app.listen(PORT, () => {
-    console.log(`Booxi proxy server on port ${PORT}`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`Booxi proxy server on port ${PORT}`);
+});

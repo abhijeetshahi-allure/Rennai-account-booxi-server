@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "38275bd9fa8358a07f7e6e5844fab82a"
+name = "booxi-services-app"
+# Points to web backend; CLI updates to tunnel URL during shopify app dev (required for app proxy)
+application_url = "http://localhost:3000"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+web_directories = ["web"]
+
+[webhooks]
+api_version = "2026-04"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_app_proxy, customer_read_customers"
+
+[app_proxy]
+url = "/apps/booxi"
+prefix = "apps"
+subpath = "booxi"
+
+[auth]
+redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
