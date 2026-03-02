@@ -1,6 +1,6 @@
 /**
  * Vercel serverless entry point.
- * Routes all requests to the Express app so /apps/booxi/* and /health work.
+ * Handles all requests - Express app receives the original URL path.
  */
 import app from '../server.js';
 
